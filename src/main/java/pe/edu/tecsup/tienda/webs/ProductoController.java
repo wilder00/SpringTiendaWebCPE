@@ -75,6 +75,26 @@ public class ProductoController {
 
 		logger.info("call store(producto: " + producto + ")");
 
+		
+		if(file != null && !file.isEmpty()) {
+			
+			String filename = System.currentTimeMillis() + file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+			
+			logger.info("filename : " + filename);
+			
+			producto.setImagen_nombre(filename);
+			
+			if(Files.notExists(Paths.get(STORAGEPATH)))
+		        Files.createDirectories(Paths.get(STORAGEPATH));
+		    
+			Files.copy(file.getInputStream(), 
+					   Paths.get(STORAGEPATH).resolve(filename), 
+					   StandardCopyOption.REPLACE_EXISTING);
+		}
+		
+		
+		
+		
 		producto.setCreado(new Date()); // Fecha de creacion
 		
 		producto.setEstado(1);  // Activo
