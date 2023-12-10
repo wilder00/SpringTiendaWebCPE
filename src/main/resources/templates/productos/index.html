@@ -1,11 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  th:replace="~{layouts/default :: layout(~{::title}, ~{::assets}, ~{::nav}, ~{::content})}">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	
+	<th:block th:fragment="assets">
+	<script type="text/javascript" th:inline="javascript">
+	    $(function(){
+	       
+	    });
+	</script>
+	</th:block>
+	
+	<title>Lista de Productos</title>
+
 </head>
 <body>
+	
+	<nav th:fragment="nav" aria-label="breadcrumb">
+		<ol class="breadcrumb my-3">
+			<li class="breadcrumb-item"><a href="#">Inicio</a></li>
+			<li class="breadcrumb-item"><a href="#">Mantenimiento</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Productos</li>
+		</ol>
+	</nav>
 
-	Listado de productos
+   <th:block th:fragment="content">
+		
+		<div class="card">
+		
+			<div class="card-header">
+        	   	Lista de Productos
+           </div>
+		
+		</div>
+		
+	</th:block>
+
 </body>
 </html>
