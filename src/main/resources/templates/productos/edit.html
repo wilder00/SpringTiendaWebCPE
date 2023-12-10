@@ -20,7 +20,11 @@
     <th:block th:fragment="content">
 
 
-		<form action="" th:action="@{/productos/update}" method="post" enctype="multipart/form-data" th:object="${producto}">
+		<form th:action="@{/productos/update}" 
+			  method="post" 
+			  enctype="multipart/form-data" 
+			  th:object="${producto}">
+			
 			<div class="card mb-3">
 				<div class="card-header">
 	            	Editar Producto
@@ -32,7 +36,7 @@
 	            	<div class="form-group">
 	            		<label for="id_categoria">Categor&iacute;a</label>
 	            		<select id="id_categoria" name="categoria" th:field="*{categoria}" class="form-control" required="required">
-	            			<option th:each="categoria : ${categorias}" value="" th:value="${categoria.id}" th:text="${categoria.nombre}">Catería</option>
+	            			<option th:each="categoria : ${categorias}" value="" th:value="${categoria.id}" th:text="${categoria.nombre}">Categoría</option>
 	            		</select>
 	            	</div>
 	            	
