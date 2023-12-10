@@ -53,6 +53,29 @@ public class ProductoController {
 		
 	}
 	
+	@GetMapping("/create")
+	public String create(Model model) throws Exception {
+		logger.info("call create()");
+		
+		List<Categoria> categorias = categoriaService.findAll();
+		model.addAttribute("categorias", categorias);
+		
+		Producto producto = new Producto();
+		model.addAttribute("producto", producto);
+		
+		return "productos/create";
+	}
+
+	@PostMapping("/store")
+	public String store(@ModelAttribute("producto") Producto producto, 
+						Errors errors, 
+						@RequestParam("file") MultipartFile file,
+						RedirectAttributes redirectAttrs) throws Exception{
+
+		// TODO
+		
+		return "redirect:/productos";
+	}
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) throws Exception {
 		logger.info("edit edit(id: " + id + ")");
