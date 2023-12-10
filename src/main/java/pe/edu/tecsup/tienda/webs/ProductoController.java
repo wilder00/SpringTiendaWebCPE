@@ -3,6 +3,7 @@ package pe.edu.tecsup.tienda.webs;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -72,10 +73,20 @@ public class ProductoController {
 						@RequestParam("file") MultipartFile file,
 						RedirectAttributes redirectAttrs) throws Exception{
 
-		// TODO
+		logger.info("call store(producto: " + producto + ")");
+
+		producto.setCreado(new Date()); // Fecha de creacion
 		
+		producto.setEstado(1);  // Activo
+		
+		// Creacion del producto
+		productoService.save(producto);
+
+		//
 		return "redirect:/productos";
 	}
+	
+	
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) throws Exception {
 		logger.info("edit edit(id: " + id + ")");

@@ -1,5 +1,7 @@
 package pe.edu.tecsup.tienda.entities;
 
+import java.util.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,6 +30,15 @@ public class Producto {
 	private String imagen_tipo;
 	private Long imagen_tamanio;
 	private Integer estado;
+	public Date getCreado() {
+		return creado;
+	}
+
+	public void setCreado(Date creado) {
+		this.creado = creado;
+	}
+
+	private Date creado;
 
 	public Long getId() {
 		return id;
@@ -112,9 +123,11 @@ public class Producto {
 
 	@Override
 	public String toString() {
-		return "Producto [id=" + id +  ", nombre="
-				+ nombre + ", descripcion=" + descripcion + ", precio=" + precio + ", stock=" + stock
-				+ ", imagen_nombre=" + imagen_nombre + ", imagen_tipo=" + imagen_tipo + ", imagen_tamanio="
-				+ imagen_tamanio + ", estado=" + estado + "]";
+		return "Producto [id=" + id + ", categoria=" + categoria + ", nombre=" + nombre + ", descripcion=" + descripcion
+				+ ", precio=" + precio + ", stock=" + stock + ", imagen_nombre=" + imagen_nombre + ", imagen_tipo="
+				+ imagen_tipo + ", imagen_tamanio=" + imagen_tamanio + ", estado=" + estado + ", creado=" + creado
+				+ "]";
 	}
+
+
 }
