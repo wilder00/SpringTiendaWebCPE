@@ -5,10 +5,12 @@
 	<meta charset="UTF-8">
 	
 	<th:block th:fragment="assets">
-	<script type="text/javascript" th:inline="javascript">
-	    $(function(){
+	<script  th:inline="javascript">
 	       
-	    });
+    function confirmDelete(prodId) {
+        return confirm("Esta seguro que desea borrar el producto con ID " + prodId + "?");
+    }
+	    
 	</script>
 	</th:block>
 	
@@ -65,9 +67,12 @@
 								<i class="fa fa-eye"></i> Mostrar</a>
 						  	<a th:href="@{/productos/edit/} + ${producto.id}" class="btn btn-warning btn-sm">
 						  		<i class="fa fa-edit"></i> Editar</a>
-	                   		<a th:href="@{/productos/delete/} + ${producto.id}" class="btn btn-danger btn-sm">
-	                   			<i class="fa fa-trash"></i> Eliminar</a>
-						</td>
+	                   		
+                			<a  th:href="@{/productos/delete/} + ${producto.id}" 
+                				class="btn btn-danger btn-sm" 
+                				th:onclick="'return confirmDelete(\'' + ${producto.id} + '\');'">
+                					<i class="fa fa-trash"></i> Eliminar</a>
+                   		</td>
 						
 	                </tr>
 	            </tbody>
