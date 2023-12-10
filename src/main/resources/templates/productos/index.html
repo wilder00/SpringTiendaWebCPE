@@ -27,13 +27,42 @@
 
    <th:block th:fragment="content">
 		
-		<div class="card">
-		
+		<div class="card">		
 			<div class="card-header">
         	   	Lista de Productos
-           </div>
+           </div>		
+		</div>
+		
+		<div class="card-body">
+		
+			<table class="table table-borderless table-striped mb-0">
+		
+				<thead>
+	                <tr>
+	                    <th>ID</th>
+						<th>Categor&iacute;a</th>
+						<th>Nombre</th>
+						<th>Precio</th>
+						<th>Stock</th>
+						<th>Imagen</th>
+						<th width="300">Acciones</th>
+	                </tr>
+	            </thead>
+		
+			</table>
 		
 		</div>
+		
+		
+		<div class="card-footer">
+			<a href="#" th:href="@{/productos/create}" 
+			   class="btn btn-success">
+			   	<i class="fa fa-plus"></i> Nuevo
+			</a>
+		</div>
+		
+		
+		
 		
 	</th:block>
 
