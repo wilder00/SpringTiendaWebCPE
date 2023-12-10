@@ -30,8 +30,8 @@ public class ProductoController {
 	public String index(Model model) throws Exception {
 		logger.info("call index()");
 		
-		List<Producto> productos = productoService.findAll();
-		model.addAttribute("productos", productos);
+		List<Producto> prods = productoService.findAll();
+		model.addAttribute("productos", prods);
 		
 		return "productos/index";
 		
